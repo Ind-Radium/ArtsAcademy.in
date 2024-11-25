@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <link rel="stylesheet" href="pricing_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Pricing for Subjects</h1>
+    </header>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <h2>Select Your Subjects and Class</h2>
+        <p>Choose multiple subjects and your class. The total fee will be calculated based on your selection.</p>
+        
+        <!-- Class Input -->
+        <div class="class-input">
+            <label for="class">Enter The Admission Class:</label>
+            <input type="number" id="class" name="class" placeholder="Enter Class here..." required>
+            <span id="class-error" class="error-message"></span>
+        </div>
+
+        <!-- Subject List -->
+        <div class="subject-list">
+            <div class="subject-item">
+                <h3>Bengali</h3>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="bengali" onclick="updateTotal()">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="subject-item">
+                <h3>History</h3>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="history" onclick="updateTotal()">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="subject-item">
+                <h3>Geography</h3>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="geography" onclick="updateTotal()">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="subject-item">
+                <h3>Sanskrit</h3>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="sanskrit" onclick="updateTotal()">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="subject-item">
+                <h3>English</h3>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="english" onclick="updateTotal()">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="subject-item">
+                <h3>Computer</h3>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="computer" onclick="updateTotal()">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Fee Display -->
+        <div id="fee-result">
+            <p><strong>Total Fee: </strong><span id="fee-amount">₹0</span></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Arts Academy | All Rights Reserved</p>
+    </footer>
+
+    <script src="pricing_script.js"></script>
+</body>
+</html>

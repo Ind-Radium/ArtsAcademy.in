@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    background-color: #1a73e8;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* About Sir Section */
+.about-sir-section {
+    background: #ffffff;
+    padding: 30px 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.about-sir-section h2 {
+    font-size: 1.8rem;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.about-sir-section p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* About Sir Details */
+.about-sir-details p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.about-sir-details strong {
+    color: #1a73e8;
+}
+
+/* Footer Styles */
+.footer {
+    background: #1a73e8;
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+/* Header Styles */
+.header {
+    background-color: #1a73e8;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Address Section */
+.address-section {
+    background: #ffffff;
+    padding: 30px 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.address-section h2 {
+    font-size: 1.8rem;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.address-section p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.address-section a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.address-section a:hover {
+    text-decoration: underline;
+}
