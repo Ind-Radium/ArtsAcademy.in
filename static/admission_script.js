@@ -1,4 +1,11 @@
+document.getElementById("admission-form").addEventListener("submit", function(event) {
+    event.preventDefault();  // Prevent form submission
+    calculateFee();  // Call the fee calculation logic when form is submitted
+});
+
 function calculateFee() {
+    console.log("calculateFee function is triggered");  // Debugging log to see if the function is called.
+
     const classSelected = document.getElementById("class").value;
     const classError = document.getElementById("class-error");
 

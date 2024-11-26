@@ -47,18 +47,19 @@ body {
     font-weight: 600;
 }
 
-.pricing-section p {
+.pricing-section p,.class-input label {
     font-size: 1.1rem;
     margin-bottom: 20px;
     color: #555;
 }
 
-/* Class Input */
+/* Dropdown Styles */
 .class-input {
     margin-bottom: 20px;
+    margin-top: -10px; /* Adjust this value to shift the dropdown upward */
 }
 
-.class-input input {
+.class-input select {
     padding: 15px;
     font-size: 1.2rem;
     border: 2px solid #ddd;
@@ -66,11 +67,14 @@ body {
     width: 100%;
     max-width: 300px;
     transition: all 0.3s ease;
+    background-color: #fff;
+    color: #333;
 }
 
-.class-input input:focus {
+.class-input select:focus {
     border-color: #1a73e8;
     outline: none;
+    box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
 }
 
 .error-message {
@@ -79,19 +83,13 @@ body {
     margin-top: 5px;
 }
 
-/* Subject List */
-.subject-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
+/* Subject Item */
 .subject-item {
+    position: relative; /* Enables positioning for child elements like the checkbox */
     background: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
-    width: 48%; /* Two subjects per row */
+    width: 100%; /* Two subjects per row */
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -104,34 +102,36 @@ body {
     transform: translateY(-5px);
 }
 
-.subject-item h3 {
-    font-size: 1.6rem;
-    color: #1a73e8;
-    margin-bottom: 10px;
-}
-
+/* Checkbox Container */
 .checkbox-container {
-    position: relative;
-    display: inline-block;
+    position: absolute;
+    top: 10px; /* Position the checkbox from the top of the card */
+    right: 10px; /* Position the checkbox from the right of the card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
 }
 
+/* Actual Checkbox */
 .checkbox-container input {
     position: absolute;
-    opacity: 0;
+    opacity: 0; /* Makes the default checkbox invisible */
     cursor: pointer;
+    width: 24px;
+    height: 24px;
 }
 
+/* Custom Checkmark */
 .checkmark {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-color: #fff;
     border: 2px solid #1a73e8;
     border-radius: 4px;
-    transition: background-color 0.3s;
-    transform: translateY(-50%);
+    display: inline-block;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .checkbox-container input:checked + .checkmark {
@@ -142,14 +142,15 @@ body {
 .checkbox-container input:checked + .checkmark:after {
     content: "";
     position: absolute;
-    top: 3px;
-    left: 7px;
+    top: 5px;
+    left: 8px;
     width: 5px;
     height: 10px;
     border: solid white;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+
 
 /* Fee Display */
 #fee-result {
@@ -165,18 +166,53 @@ body {
     font-weight: bold;
 }
 
-/* Footer Styles */
-.footer {
-    background: #1a73e8;
-    color: white;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    font-size: 0.9rem;
+/* Calculate Button */
+.calculate-container {
     text-align: center;
+    margin-top: 30px;
 }
 
-.footer p {
-    margin: 0;
+.calculate-btn {
+    background-color: #1a73e8;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.calculate-btn:hover {
+    background-color: #0f5ab8;
+    transform: translateY(-2px);
+}
+
+.calculate-btn:active {
+    background-color: #0c47a1;
+    transform: translateY(0);
+}
+
+
+
+/* Footer Styles */
+.footer {
+    background: #1a73e8; /* Footer background color */
+    color: white; /* Text color */
+    padding: 2px 0; /* Padding for spacing */
+    text-align: center; /* Center align the footer content */
+    font-size: 0.9rem; /* Font size */
+    border-top: 4px solid #1a73e8; /* Add a top border for separation */
+ /* Fix the footer to the bottom */
+    bottom: 0; /* Fix it to the bottom */
+    left: 0; /* Ensure it stretches from the left edge */
+    width: 100%; /* Make the footer span the entire width of the screen */
+    z-index: 10; /* Ensure it's above other elements */
+    margin-top: 0;
+}
+
+
+/* Prevent shrinking when interacting with the pricing section */
+.pricing-section:hover {
+    transform: none;
 }

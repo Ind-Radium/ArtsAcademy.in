@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    background-color: #1a73e8;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Subjects Section */
+.subjects-section {
+    background: #ffffff;
+    padding: 30px 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.subjects-section h2 {
+    font-size: 1.8rem;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.subjects-section p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Subject List Styles */
+.subject-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.subject-item {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%; /* Two subjects per row */
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subject-item h3 {
+    font-size: 1.4rem;
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+
+.subject-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer Styles */
+.footer {
+    background: #1a73e8;
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.9rem;
+    text-align: center;
+}

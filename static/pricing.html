@@ -9,78 +9,96 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <h1>Pricing for Subjects</h1>
+        <h1>Fees for Subjects</h1>
     </header>
 
     <!-- Pricing Section -->
     <section class="pricing-section">
-        <h2>Select Your Subjects and Class</h2>
+        <h2>Select Your Class and Subjects</h2>
         <p>Choose multiple subjects and your class. The total fee will be calculated based on your selection.</p>
         
-        <!-- Class Input -->
+        <!-- Class Dropdown -->
         <div class="class-input">
-            <label for="class">Enter The Admission Class:</label>
-            <input type="number" id="class" name="class" placeholder="Enter Class here..." required>
+            <label for="class">Select Your Class:</label>
+            <select id="class" name="class">
+                <option value="" disabled selected>Select Class</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+                <option value="11">Class 11</option>
+                <option value="12">Class 12</option>
+                <option value="ba_pass">B.A (Pass)</option>
+                <option value="ba_honours">B.A (Honours)</option>
+            </select>
             <span id="class-error" class="error-message"></span>
         </div>
+        
 
-        <!-- Subject List -->
-        <div class="subject-list">
-            <div class="subject-item">
-                <h3>Bengali</h3>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="bengali" onclick="updateTotal()">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="subject-item">
-                <h3>History</h3>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="history" onclick="updateTotal()">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="subject-item">
-                <h3>Geography</h3>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="geography" onclick="updateTotal()">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="subject-item">
-                <h3>Sanskrit</h3>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="sanskrit" onclick="updateTotal()">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="subject-item">
-                <h3>English</h3>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="english" onclick="updateTotal()">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="subject-item">
-                <h3>Computer</h3>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="computer" onclick="updateTotal()">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-        </div>
 
-        <!-- Fee Display -->
-        <div id="fee-result">
-            <p><strong>Total Fee: </strong><span id="fee-amount">₹0</span></p>
-        </div>
-    </section>
+<!-- Subject List -->
+<div class="subject-list">
+    <div class="subject-item">
+        <h3>Bengali</h3>
+        <label class="checkbox-container">
+            <input type="checkbox" id="bengali">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="subject-item">
+        <h3>History</h3>
+        <label class="checkbox-container">
+            <input type="checkbox" id="history">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="subject-item">
+        <h3>Geography</h3>
+        <label class="checkbox-container">
+            <input type="checkbox" id="geography">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="subject-item">
+        <h3>Sanskrit</h3>
+        <label class="checkbox-container">
+            <input type="checkbox" id="sanskrit">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="subject-item">
+        <h3>English</h3>
+        <label class="checkbox-container">
+            <input type="checkbox" id="english">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="subject-item">
+        <h3>Computer</h3>
+        <label class="checkbox-container">
+            <input type="checkbox" id="computer">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Arts Academy | All Rights Reserved</p>
-    </footer>
+<!-- Calculate Button -->
+<div class="calculate-container">
+    <button class="calculate-btn" onclick="calculateFee()">Calculate</button>
+</div>
 
-    <script src="pricing_script.js"></script>
+<!-- Fee Display -->
+<div id="fee-result">
+    <p><strong>Total Fee: </strong><span id="fee-amount">₹0</span></p>
+</div>
+
+
+<footer class="footer">
+    <p>&copy; 2024 Arts Academy | All Rights Reserved</p>
+</footer>
+
+<script src="pricing_script.js"></script>
+
 </body>
 </html>
