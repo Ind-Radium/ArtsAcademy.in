@@ -6,39 +6,74 @@
     <title>ARTS ACADEMY</title>
     <link rel="stylesheet" href="static/style.css">
     <link rel="icon" href="favicon.ico" type="image/ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,800;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* CSS for changing colors of text */
+        .color-text {
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
     <header class="header">
         <img src="favicon.ico" alt="ARTS ACADEMY Logo" class="logo">
-        <h1>Welcome To <span><br>ARTS ACADEMY</span></h1>
+        <h1>Welcome To </h1>
+        <div id="typed-output">
+            <h1><span id="typed-text"></span></h1>
+        </div>    
         <p>Your gateway to creative learning.</p>
     </header>
 
     <!-- Why ARTS ACADEMY Section -->
-<section class="why-arts-academy">
-    <h2>Why Choose ARTS ACADEMY ?</h2>
-    <p>ARTS ACADEMY is a local initiative dedicated to helping students excel in their studies and build essential computer skills. We specialize in teaching students from Class 6 to 12 and college arts students. Here’s why you should join us:</p>
-    <ul>
-        <li><strong>Focused Learning:</strong> Small batch sizes ensure personalized attention and better understanding for every student.</li>
-        <li><strong>Experienced Teachers:</strong> Our Teacher Chandan kundu have 18 years of experience in teaching carrier and arts subjects.</li>
-        <li><strong>Practical Computer Skills:</strong> Learn essential softwares like MS Word, MS Paint, WordPad, Excel, and more, crucial for academics and day-to-day use.</li>
-        <li><strong>Affordable Fees:</strong> We offer quality education at a price that fits your budget.</li>
-        <li><strong>Convenient Location:</strong> Located in Burdwan,Tikorhat , we are easily accessible for students in the community.</li>
-        <li><strong>Friendly Environment:</strong> A welcoming and supportive environment to help you achieve your academic and skill-based goals.</li>
-    </ul>
-    <p>At ARTS ACADEMY, we aim to make learning simple, practical, and effective. Join our batch today and take the next step towards academic success and practical skill development!</p>
-</section>
+    <section class="why-arts-academy">
+        <h2>Why Choose ARTS ACADEMY ?</h2>
+        <p>ARTS ACADEMY is a local initiative dedicated to helping students excel in their studies and build essential computer skills. We specialize in teaching students from Class 6 to 12 and college arts students. Here’s why you should join us:</p>
+        <ul>
+            <li><strong>Focused Learning:</strong> Small batch sizes ensure personalized attention and better understanding for every student.</li>
+            <li><strong>Experienced Teachers:</strong> Our Teacher Chandan Kundu has 18 years of experience in teaching career and arts subjects.</li>
+            <li><strong>Practical Computer Skills:</strong> Learn essential software like MS Word, MS Paint, WordPad, Excel, and more, crucial for academics and day-to-day use.</li>
+            <li><strong>Affordable Fees:</strong> We offer quality education at a price that fits your budget.</li>
+            <li><strong>Convenient Location:</strong> Located in Burdwan, Tikorhat, we are easily accessible for students in the community.</li>
+            <li><strong>Friendly Environment:</strong> A welcoming and supportive environment to help you achieve your academic and skill-based goals.</li>
+        </ul>
+        <p>At ARTS ACADEMY, we aim to make learning simple, practical, and effective. Join our batch today and take the next step towards academic success and practical skill development!</p>
+    </section>
 
-<!-- Main Section -->
-<main class="main-content">
-    <div class="cta-grid">
-        <a href="static/classes.html" class="button primary">Classes</a>
-        <a href="static/subjects.html" class="button secondary">Subjects</a>
-        <a href="static/pricing.html" class="button primary">Fees</a>
-        <a href="static/about.html" class="button secondary">About Sir</a>
-        <a href="static/admission_page.html" class="button primary">Admission</a>
-        <a href="static/contact.html" class="button secondary">Contact Us</a>
-    </div>
-</main>
+    <!-- Main Section -->
+    <main class="main-content">
+        <div class="cta-grid">
+            <a href="static/classes.html" class="button primary">Classes</a>
+            <a href="static/subjects.html" class="button secondary">Subjects</a>
+            <a href="static/pricing.html" class="button primary">Fees</a>
+            <a href="static/about.html" class="button secondary">About Sir</a>
+            <a href="static/admission_page.html" class="button primary">Admission</a>
+            <a href="static/contact.html" class="button secondary">Contact Us</a>
+        </div>
+    </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var options = {
+            strings: [
+                "ARTS ACADEMY"
+            ],
+            typeSpeed: 110,
+            backSpeed: 90,
+            backDelay: 1000,
+            startDelay: 500,
+            loop: true,
+            contentType: 'text', // Ensure we are typing plain text, no HTML
+            onStringTyped: function() {
+                // After typing, add the color animation class
+                var typedTextElement = document.getElementById("typed-text");
+                typedTextElement.classList.add("color-text");
+            }
+        };
+
+        var typed = new Typed("#typed-text", options);
+    </script>
+</body>
+</html>

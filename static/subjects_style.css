@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background: #f9f9f9;
@@ -59,6 +59,13 @@ body {
     box-sizing: border-box;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subject-item:hover{
+    background-color: #eaf2fb;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transform: scale(1.05);
 }
 
 .subject-item h3 {

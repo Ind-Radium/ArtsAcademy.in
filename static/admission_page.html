@@ -1,124 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admission Form</title>
     <link rel="stylesheet" href="admission_style.css">
+    <link rel="icon" href="favicon.ico" type="image/ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <h1>Admission Form</h1>
     </header>
 
-    <!-- Admission Form Section -->
-    <section class="admission-form-section">
-        <h2>Fill in the Admission Details</h2>
-        <form id="admission-form">
-            <!-- Student's Name -->
-            <div class="form-group">
-                <label for="name">Student's Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter Name" required>
-            </div>
+    <!-- Main Section -->
+    <main>
+        <section class="admission-form-section">
+            <h2>Fill in the Admission Details</h2>
 
-            <!-- Guardian's Name -->
-            <div class="form-group">
-                <label for="guardian-name">Guardian's Name:</label>
-                <input type="text" id="guardian-name" name="guardian-name" placeholder="Enter Guardian's Name" required>
-            </div>
+            <div id="global-error" class="error-message"></div>
 
-            <!-- Guardian's Phone -->
-            <div class="form-group">
-                <label for="guardian-phone">Guardian's Phone Number:</label>
-                <input type="tel" id="guardian-phone" name="guardian-phone" placeholder="Enter Guardian's Phone Number" required>
-            </div>
+            <form id="admission-form">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">Student's Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Name" required>
+                </div>
 
-            <!-- Date of Birth -->
-            <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
-            </div>
+                <!-- Guardian's Name -->
+                <div class="form-group">
+                    <label for="guardian-name">Guardian's Name:</label>
+                    <input type="text" id="guardian-name" name="guardian-name" placeholder="Enter Guardian's Name" required>
+                </div>
 
-            <!-- Address -->
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <textarea id="address" name="address" placeholder="Enter Address" rows="3" required></textarea>
-            </div>
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="guardian-phone">Guardian's Phone Number:</label>
+                    <input type="tel" id="guardian-phone" name="guardian-phone" placeholder="Enter Phone Number" required>
+                </div>
 
-            <!-- Class Dropdown -->
-            <div class="form-group">
-                <label for="class">Class:</label>
-                <select id="class" name="class" required>
-                    <option value="" disabled selected>Select Class</option>
-                    <option value="6">Class 6</option>
-                    <option value="7">Class 7</option>
-                    <option value="8">Class 8</option>
-                    <option value="9">Class 9</option>
-                    <option value="10">Class 10</option>
-                    <option value="11">Class 11</option>
-                    <option value="12">Class 12</option>
-                    <option value="ba_pass">B.A (Pass)</option>
-                    <option value="ba_honours">B.A (Honours)</option>
-                </select>
-                <span id="class-error" style="color: red;"></span>
-            </div>
+                <!-- Date of Birth -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
 
-            <!-- Subjects Section -->
-            <div class="form-group">
-                <label>Subjects:</label>
-                <div class="subject-list">
-                    <div class="subject-item">
-                        <h3>Bengali</h3>
-                        <input type="checkbox" id="bengali" name="subjects" onclick="calculateFee()">
-                    </div>
-                    <div class="subject-item">
-                        <h3>History</h3>
-                        <input type="checkbox" id="history" name="subjects" onclick="calculateFee()">
-                    </div>
-                    <div class="subject-item">
-                        <h3>Geography</h3>
-                        <input type="checkbox" id="geography" name="subjects" onclick="calculateFee()">
-                    </div>
-                    <div class="subject-item">
-                        <h3>Sanskrit</h3>
-                        <input type="checkbox" id="sanskrit" name="subjects" onclick="calculateFee()">
-                    </div>
-                    <div class="subject-item">
-                        <h3>English</h3>
-                        <input type="checkbox" id="english" name="subjects" onclick="calculateFee()">
-                    </div>
-                    <div class="subject-item">
-                        <h3>Computer</h3>
-                        <input type="checkbox" id="computer" name="subjects" onclick="calculateFee()">
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" placeholder="Enter Address" rows="3" required></textarea>
+                </div>
+
+                <!-- Class Dropdown -->
+                <div class="form-group">
+                    <label for="class">Class:</label>
+                    <select id="class" name="class" required>
+                        <option value="" disabled selected>Select Class</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                        <option value="11">Class 11</option>
+                        <option value="12">Class 12</option>
+                        <option value="ba_pass">B.A (Pass)</option>
+                        <option value="ba_honours">B.A (Honours)</option>
+                    </select>
+                    <span id="class-error" class="error-message"></span>
+                </div>
+
+                <!-- Subjects -->
+                <div class="form-group">
+                    <label>Subjects:</label>
+                    <div class="subject-list">
+                        <label><input type="checkbox" id="bengali" name="subjects"> Bengali</label>
+                        <label><input type="checkbox" id="history" name="subjects"> History</label>
+                        <label><input type="checkbox" id="geography" name="subjects"> Geography</label>
+                        <label><input type="checkbox" id="sanskrit" name="subjects"> Sanskrit</label>
+                        <label><input type="checkbox" id="english" name="subjects"> English</label>
+                        <label><input type="checkbox" id="computer" name="subjects"> Computer</label>
                     </div>
                 </div>
-            </div>
 
-            <!-- Total Fee Display -->
-            <div class="form-group">
-                <label>Total Fees:</label>
-                <p id="fee-display"><strong>₹0</strong></p>
-            </div>
+                <div class="form-group">
+                    <button type="button" id="calculate-fee" onclick="calculateFee()">Calculate Fee</button>
+                </div>
 
-            <!-- Self Phone -->
-            <div class="form-group">
-                <label for="self-phone">Your Phone Number:</label>
-                <input type="tel" id="self-phone" name="self-phone" placeholder="Enter Your Phone Number">
-            </div>
+                <!-- Fee Display -->
+                <div class="form-group">
+                    <label>Total Fees:</label>
+                    <p id="fee-display"><strong>₹0</strong></p>
+                </div>
 
-            <!-- Upload Photo -->
-            <div class="form-group">
-                <label for="photo">Upload Photo:</label>
-                <input type="file" id="photo" name="photo" accept="image/*" required>
-            </div>
+                <!-- File Upload -->
+                <div class="form-group">
+                    <label for="photo">Upload Photo:</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                </div>
 
-            <!-- Submit Button -->
-            <div class="form-group">
-                <button type="submit">Submit Admission</button>
-            </div>
-        </form>
-    </section>
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit">Submit Admission</button>
+                </div>
+            </form>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -126,99 +117,7 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        document.getElementById("admission-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-            calculateFee(); // Call the fee calculation logic when form is submitted
-        });
-
-        function calculateFee() {
-            console.log("calculateFee function is triggered");
-
-            const classSelected = document.getElementById("class").value;
-            const classError = document.getElementById("class-error");
-
-            // Define subject fees
-            const groupedFee = { "6-8": 350, "9-10": 400 };
-            const individualFee = 400;
-            const englishFee = 300;
-            const computerFee = 250;
-
-            // Validate selected class
-            if (!classSelected) {
-                classError.textContent = "Please select a valid class.";
-                document.getElementById("fee-display").innerText = "₹0";
-                return;
-            } else {
-                classError.textContent = "";
-            }
-
-            // Initialize total fee
-            let totalFee = 0;
-            let artsGroupSelected = 0;
-            let isEnglishSelected = document.getElementById("english").checked;
-            let isComputerSelected = document.getElementById("computer").checked;
-
-            // Check if grouped subjects are selected
-            if (document.getElementById("bengali").checked) artsGroupSelected++;
-            if (document.getElementById("history").checked) artsGroupSelected++;
-            if (document.getElementById("geography").checked) artsGroupSelected++;
-            if (document.getElementById("sanskrit").checked) artsGroupSelected++;
-
-            // Class-based logic
-            if (classSelected >= 6 && classSelected <= 8) {
-                // Grouped fees for classes 6 to 8
-                if (artsGroupSelected > 0) {
-                    totalFee += groupedFee["6-8"]; // Apply group fee once
-                }
-
-                // Add separate fees for English and Computer
-                if (isEnglishSelected) totalFee += englishFee;
-                if (isComputerSelected) totalFee += computerFee;
-            } else if (classSelected >= 9 && classSelected <= 10) {
-                // Grouped fees for classes 9 to 10
-                if (artsGroupSelected > 0) {
-                    totalFee += groupedFee["9-10"]; // Apply group fee once
-                }
-
-                // Add separate fees for English and Computer
-                if (isEnglishSelected) totalFee += englishFee;
-                if (isComputerSelected) totalFee += computerFee;
-            } else if (classSelected >= 11 && classSelected <= 12) {
-                // All subjects are separate for classes 11 and 12
-                if (artsGroupSelected > 0) {
-                    totalFee += artsGroupSelected * individualFee;
-                }
-
-                // Add separate fees for English and Computer
-                if (isEnglishSelected) {
-                    classError.textContent = "English is not available for classes 11 and 12.";
-                    document.getElementById("fee-display").innerText = "₹0";
-                    return;
-                }
-                if (isComputerSelected) totalFee += computerFee;
-            } else if (classSelected === "ba_pass" || classSelected === "ba_honours") {
-                // B.A validation for English
-                if (isEnglishSelected) {
-                    classError.textContent = "English is not available for B.A (Pass) or B.A (Honours).";
-                    document.getElementById("fee-display").innerText = "₹0";
-                    return;
-                }
-
-                // All subjects are separate for B.A
-                if (artsGroupSelected > 0) {
-                    totalFee += artsGroupSelected * individualFee;
-                }
-                if (isComputerSelected) totalFee += computerFee;
-            } else {
-                classError.textContent = "Invalid class selection.";
-                document.getElementById("fee-display").innerText = "₹0";
-                return;
-            }
-
-            // Display the total fee
-            document.getElementById("fee-display").innerText = `₹${totalFee}`;
-        }
-    </script>
+    <script src="admission_script.js"></script>
 </body>
+
 </html>

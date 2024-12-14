@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background: #f8f9fa;
@@ -8,6 +8,12 @@ body {
 }
 
 header {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+header .typed-output {
     text-align: center;
     padding: 20px;
     background: #ffffff;
