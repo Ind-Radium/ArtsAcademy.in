@@ -1,3 +1,26 @@
+// Function to show notifications
+function showNotification(message, type = 'error') {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+
+    // Apply type-based styling if needed
+    if (type === 'error') {
+        notification.style.backgroundColor = '#ff4d4d';
+    } else if (type === 'success') {
+        notification.style.backgroundColor = '#4caf50';
+    }
+
+    // Show the notification
+    notification.classList.remove('hidden');
+    notification.classList.add('visible');
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('visible');
+        notification.classList.add('hidden');
+    }, 3000);
+}
+
 function calculateFee() {
     const classSelected = document.getElementById("class").value;
     const classError = document.getElementById("class-error");
@@ -10,7 +33,7 @@ function calculateFee() {
 
     // Validate selected class
     if (!classSelected) {
-        classError.textContent = "Please select a valid class.";
+        showNotification("Please select your class !","error")
         document.getElementById("fee-amount").textContent = "₹0";
         return;
     } else {
@@ -56,7 +79,8 @@ function calculateFee() {
 
         // Add separate fees for English and Computer
         if (isEnglishSelected) {
-            classError.textContent = "English is not available for classes 11 and 12.";
+            showNotification("English is not available for class 11 and 12 !","error")
+
             document.getElementById("fee-amount").textContent = "₹0";
             return;
         }
@@ -64,7 +88,7 @@ function calculateFee() {
     } else if (classSelected === "ba_pass" || classSelected === "ba_honours") {
         // Validate subject selection for B.A
         if (artsGroupSelected > 0 || isEnglishSelected) {
-            classError.textContent = "Only Sanskrit and Computer are available for B.A classes.";
+            showNotification("Only sanskrit and computer is available for B.A students !","error");
             document.getElementById("fee-amount").textContent = "₹0";
             return;
         }
@@ -78,7 +102,7 @@ function calculateFee() {
             if (isComputerSelected) totalFee += computerFee;
         }
     } else {
-        classError.textContent = "Invalid class selection.";
+        showNotification("Invalid class selection !","error")
         document.getElementById("fee-amount").textContent = "₹0";
         return;
     }
