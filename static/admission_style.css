@@ -217,18 +217,14 @@ button:active {
     letter-spacing: 0.5px;
 }
 
-/* Footer */
+/* Footer Styles */
 .footer {
     background: #1a73e8;
     color: white;
-    padding: 15px 0;
-    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
     font-size: 0.9rem;
-    border-top: 5px solid #0f5ab8;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.footer p {
-    margin: 0;
-    line-height: 1.5;
+    text-align: center;
 }

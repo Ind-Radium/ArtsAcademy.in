@@ -105,6 +105,19 @@ function calculateFee() {
             if (isSanskritSelected) totalFee += baFee.honours;
             if (isComputerSelected) totalFee += computerFee;
         }
+    } else if (classSelected === "computer_any") {
+
+        if (isComputerSelected) totalFee += computerFee;
+        if (isEnglishSelected) {
+            showNotification("Only computer is available.","error")
+        }
+        if (artsGroupSelected) {
+            showNotification("Only computer is available.","error")
+        }
+        if (isSanskritSelected) {
+            showNotification("Only computer is available.","error")
+        }
+
     } else {
         showNotification("Invalid class selection !","error")
         document.getElementById("fee-display").textContent = "₹0";

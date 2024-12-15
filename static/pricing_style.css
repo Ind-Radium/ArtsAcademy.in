@@ -204,26 +204,19 @@ body {
     background-color: #0c47a1;
     transform: translateY(0);
 }
-
-
-
-/* Footer Styles */
-/* .footer {
-    background: #1a73e8;
-    color: rgb(255, 255, 255); 
-    padding: 2px 0; 
-    text-align: center;
-    font-size: 0.9rem;
-    border-top: 4px solid #1661c4; 
-    bottom: 0; 
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    margin-top: 0;
-} */
-
-
 /* Prevent shrinking when interacting with the pricing section */
 .pricing-section:hover {
     transform: none;
+}
+
+/* Footer Styles */
+.footer {
+    background: #1a73e8;
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.9rem;
+    text-align: center;
 }
