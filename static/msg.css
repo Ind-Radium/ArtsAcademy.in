@@ -49,3 +49,12 @@
 .notification.info {
     background: linear-gradient(135deg, #7bbcff, #1e88e5);
 }
+.notification.hidden {
+    opacity: 0;
+    transform: translate(-50%, -200%);
+}
+
+.notification.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
