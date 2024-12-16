@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admission Form</title>
     <link rel="stylesheet" href="admission_style.css">
+    <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="msg.css">
     <link rel="icon" href="favicon.ico" type="image/ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +44,12 @@
                 <div class="form-group">
                     <label for="guardian-phone">Guardian's Phone Number:</label>
                     <input type="tel" id="guardian-phone" name="guardian-phone" placeholder="Enter Phone Number" required>
+                </div>
+
+                 <!-- Students Phone number (if have) -->
+                <div class="form-group">
+                    <label for="student-phone">Student's Phone Number:</label>
+                    <input type="tel" id="student-phone" name="student-phonev" placeholder="Enter Student's Phone Number (Else Leave Blank)">
                 </div>
 
                 <!-- Date of Birth -->
@@ -109,7 +116,7 @@
 
                 <!-- Submit Button -->
                 <div class="form-group">
-                    <button type="submit">Submit Admission</button>
+                    <button id="btn" type="submit">Submit Admission</button>
                 </div>
             </form>
         </section>

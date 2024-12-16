@@ -1,14 +1,22 @@
 // Function to show notifications
 function showNotification(message, type = 'error') {
     const notification = document.getElementById('notification');
-    notification.textContent = message;
 
-    // Apply type-based styling if needed
-    if (type === 'error') {
-        notification.style.backgroundColor = '#ff4d4d';
-    } else if (type === 'success') {
-        notification.style.backgroundColor = '#4caf50';
+    if (!notification) {
+        console.error("Notification element not found");
+        return;
     }
+
+    // Clear existing styles and content
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <span class="notification-icon">${getIconForType(type)}</span>
+        <span>${message}</span>
+    `;
+
+    // Dynamically adjust position for screen size (optional, already centered with CSS)
+    const viewportHeight = window.innerHeight;
+    notification.style.top = `${viewportHeight * 0.1}px`; // 10% from the top of the viewport
 
     // Show the notification
     notification.classList.remove('hidden');
@@ -20,6 +28,23 @@ function showNotification(message, type = 'error') {
         notification.classList.add('hidden');
     }, 3000);
 }
+
+// Helper function to get icons based on type
+function getIconForType(type) {
+    switch (type) {
+        case 'success':
+            return '✔️'; // Checkmark
+        case 'error':
+            return '❌'; // Cross
+        case 'warning':
+            return '⚠️'; // Warning symbol
+        case 'info':
+            return 'ℹ️'; // Info symbol
+        default:
+            return ''; // Default to no icon
+    }
+}
+
 
 
 // Attach the calculateFee function only to the "Calculate Fee" button
@@ -127,3 +152,69 @@ function calculateFee() {
     // Display the total fee
     document.getElementById("fee-display").textContent = `₹${totalFee}`;
 }
+
+// <----------------------------------------------------------------------------------------------------------------------->
+
+document.getElementById("admission-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Create a FormData object to hold form data including file
+    const formData = new FormData();
+
+    // Get form values
+    const name = document.getElementById("name").value;
+    const guardianName = document.getElementById("guardian-name").value;
+    const guardianPhone = document.getElementById("guardian-phone").value;
+    const studentPhone = document.getElementById("student-phone").value;
+    const dob = document.getElementById("dob").value;
+    const address = document.getElementById("address").value;
+    const className = document.getElementById("class").value;
+
+    // Add form data to FormData object
+    formData.append("name", name);
+    formData.append("guardian-name", guardianName);
+    formData.append("guardian-phone", guardianPhone);
+    formData.append("student-phone", studentPhone);
+    formData.append("dob", dob);
+    formData.append("address", address);
+    formData.append("class", className);
+
+    // Get selected subjects
+    const subjects = [];
+    const subjectCheckboxes = document.querySelectorAll('input[name="subjects"]:checked');
+    subjectCheckboxes.forEach(function(checkbox) {
+        subjects.push(checkbox.value);
+    });
+    formData.append("subjects", subjects);
+
+    // Get photo file
+    const photo = document.getElementById("photo").files[0];
+    if (photo) {
+        formData.append("photo", photo);
+    }
+
+    // Show loading message or notification
+    showNotification("Now you are a member of Arts Academy")
+    document.getElementById("btn").innerText = "Submitting your admission...";
+
+    // Submit form data to the server using fetch
+    fetch("http://127.0.0.1:5000//submit", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message) {
+            document.getElementById("notification").innerText = data.message;
+            document.getElementById("notification").classList.add("success");
+        } else if (data.error) {
+            document.getElementById("notification").innerText = `Error: ${data.error}`;
+            document.getElementById("notification").classList.add("error");
+        }
+    })
+    .catch(error => {
+        document.getElementById("notification").innerText = `Error: ${error}`;
+        document.getElementById("notification").classList.add("error");
+    });
+});
+
